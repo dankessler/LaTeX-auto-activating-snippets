@@ -175,8 +175,7 @@ it is restored only once."
 (declare-function sp--post-self-insert-hook-handler "smartparens")
 (defun laas--shut-up-smartparens ()
   "Remove Smartparens' hook temporarily from `post-self-insert-hook'."
-  (when (memq #'sp--post-self-insert-hook-handler
-              (default-value 'post-self-insert-hook))
+  (when (memq #'sp--post-self-insert-hook-handler 'post-self-insert-hook)
     (remove-hook 'post-self-insert-hook #'sp--post-self-insert-hook-handler)
     ;; push rather than add-hook so it doesn't run right after this very own
     ;; hook, but next time
